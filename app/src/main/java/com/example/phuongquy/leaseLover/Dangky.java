@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.phuongquy.leaseLover.activity.MainActivity;
+import com.example.phuongquy.leaseLover.server.server;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +29,7 @@ public class Dangky extends AppCompatActivity {
     private EditText user,pass,pass2;
     private Button dk;
 //    public static String Url_regist ="http://192.168.198.2:8080/one_love/register.php";
-    public static String Url_regist ="http://192.168.0.113:81/android/one_love/register.php";
+//    public static String Url_regist ="http://192.168.0.113:81/android/one_love/register.php";
     private ProgressBar loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ public class Dangky extends AppCompatActivity {
             Toast.makeText(this, "Mật khẩu không trùng ! Vui lòng kiểm tra lại", Toast.LENGTH_SHORT).show();
         }else
         {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, Url_regist, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, server.Url_regist, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try{

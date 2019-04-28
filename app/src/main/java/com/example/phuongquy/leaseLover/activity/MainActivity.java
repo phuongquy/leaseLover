@@ -21,6 +21,7 @@ import com.example.phuongquy.leaseLover.Dangky;
 import com.example.phuongquy.leaseLover.R;
 import com.example.phuongquy.leaseLover.full;
 import com.example.phuongquy.leaseLover.server.Checkconnect;
+import com.example.phuongquy.leaseLover.server.server;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText user,pass;
     private Button login;
 //    final String Url_login="http://192.168.198.2:8080/one_love/login.php";
-    final String Url_login="192.168.64.2:81/android/one_love/login.php";
+//    final String Url_login="192.168.64.2:81/android/one_love/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             anhxa();
             dangnhap();
             dangky();
-          //  dangnhap();
+//            dangnhapServer();
         }else
         {
             Checkconnect.show_short(getApplicationContext(),"Kiểm tra lại đường truyền  !!!");
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-  /*  private void dangnhap() {
+    private void dangnhapServer() {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }*/
+    }
 
     private void anhxa() {
         user = findViewById(R.id.user);
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void guidulieu(final String user, final String pass){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Url_login, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, server.Url_login, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
